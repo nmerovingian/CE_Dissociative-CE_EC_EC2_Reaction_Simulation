@@ -28,11 +28,11 @@ void estimateRunTime(int startTime) {
 	std::cout << "total run time is " << timeTotal << "Minutes\n";
 }
 std::string genAddress(std::string str) {
-	return ("C:/Users/nmero/OneDrive - Nexus365/Four Models/Simple EC/K0=1e-1/" + str + ".csv");
-	//return ("C:/Users/rgcgroup/OneDrive - Nexus365/Data/FeaturesData/" + str + ".csv");
-	//return ("C:/Users/rgcgroup/OneDrive - Nexus365/CV Python Script/Reversible CV/" + str + ".csv");
-	//return ("C:/Users/rgcgroup/OneDrive - Nexus365/Data/FirstPaperCV/EC2Conv/dTheta/" + str + ".csv");
-	//return ("C:/Users/nmero/OneDrive - Nexus365/data/" + str + ".csv");
+
+
+	// Your local address should be in the format of "C/User/"
+	return ("Your local address" + str + ".csv");
+
 }
 std::string to_sci(double num) {
 	std::ostringstream streamObj;
@@ -50,7 +50,7 @@ bool dcomp(double a, double b, double epsilon) {
 	return (fabs(a - b) < epsilon);
 }
 void writeStartTimeToLog() {
-	std::ofstream logFile("C:/Users/rgcgroup/OneDrive - Nexus365/Log/log.txt",std::ios::app);
+	std::ofstream logFile("Your local address/log.txt",std::ios::app);
 	auto start = std::chrono::system_clock::now();
 	std::time_t start_time = std::chrono::system_clock::to_time_t(start);
 	char str[26];
@@ -60,7 +60,7 @@ void writeStartTimeToLog() {
 	logFile.close();
 }
 void writeEndTimeToLog() {
-	std::ofstream logFile("C:/Users/rgcgroup/OneDrive - Nexus365/Log/log.txt", std::ios::app);
+	std::ofstream logFile("Your local address /log.txt", std::ios::app);
 	auto start = std::chrono::system_clock::now();
 	std::time_t start_time = std::chrono::system_clock::to_time_t(start);
 	char str[26];
@@ -71,7 +71,7 @@ void writeEndTimeToLog() {
 }
 
 void startAlphaToLog() {
-	std::ofstream alphaFile("C:/Users/rgcgroup/OneDrive - Nexus365/Log/alpha.txt", std::ios::app);
+	std::ofstream alphaFile("Your local addresss/alpha.txt", std::ios::app);
 	auto start = std::chrono::system_clock::now();
 	std::time_t start_time = std::chrono::system_clock::to_time_t(start);
 	char str[26];
@@ -81,7 +81,7 @@ void startAlphaToLog() {
 }
 
 void endAlphaToLog() {
-	std::ofstream alphaFile("C:/Users/rgcgroup/OneDrive - Nexus365/Log/alpha.txt", std::ios::app);
+	std::ofstream alphaFile("Your local address/alpha.txt", std::ios::app);
 	auto start = std::chrono::system_clock::now();
 	std::time_t start_time = std::chrono::system_clock::to_time_t(start);
 	char str[26];

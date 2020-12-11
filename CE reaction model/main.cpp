@@ -314,7 +314,7 @@ void foo(double variable1, double variable2,double variable3) {
 
 	// Write log file in here 
 	mlock.lock();
-	std::ofstream logFile("C:/Users/nmero/OneDrive - Nexus365/Log/log.txt", std::ios::app); //append to logfile
+	std::ofstream logFile("Your local address /log.txt", std::ios::app); //append to logfile
 	logFile << "\n";
 	logFile << "Thread ID=" << this_id << "\n";
 	logFile << "Sigma = " << to_sci(sigma) << "\t" << "Kf = " << to_sci(Kf) << "\t" << "Kb = " << to_sci(Kb) << "\n";
@@ -333,7 +333,7 @@ void foo(double variable1, double variable2,double variable3) {
 	logFile << "gamma is: " << gamma << "\n";
 	logFile << "\n";
 	logFile.close();
-	std::ofstream alphaFile("C:/Users/nmero/OneDrive - Nexus365/Log/alpha.txt", std::ios::app);
+	std::ofstream alphaFile("Your local address /alpha.txt", std::ios::app);
 	alphaFile << sigma << "\t" << Kf << "\t" << calculated_alpha << "\n";
 	alphaFile.close();
 	mlock.unlock();
@@ -364,44 +364,19 @@ int main() {
 
 	double scanRate = (dElectrode) * (dElectrode) / (DA) * (96485 / (8.314 * 298)) * dimScanRate; 
 	std::cout << "Scan Rate is " << scanRate << "\n";                                                            
-	//double sigma[] = {scanRate*0.001,scanRate*0.002,scanRate*0.003,scanRate*0.004,scanRate*0.005,scanRate*0.006,scanRate*0.007,scanRate*0.008,scanRate*0.009,scanRate*0.01,scanRate*0.02, scanRate*0.03,scanRate*0.04,scanRate*0.05,scanRate*0.06,scanRate*0.07,scanRate*0.08,scanRate*0.09,scanRate*0.10,scanRate*0.20,scanRate*0.30,scanRate*0.40,scanRate*0.50,scanRate*0.60,scanRate*0.70,scanRate*0.80,scanRate*0.90,scanRate*1.0,scanRate*2.0,scanRate*3.0,scanRate*4.0,scanRate*5.0,scanRate*6.0,scanRate*7.0,scanRate*8.0,scanRate*9.0,scanRate*10,scanRate*20,scanRate*30,scanRate*40,scanRate*50,scanRate*60,scanRate*70,scanRate*80,scanRate*90,scanRate*100};
+	
 	double sigma[] = { scanRate*1e-3,scanRate*1e-2,scanRate*1e-1,scanRate*1e0,scanRate*1e1,scanRate*1e2};
-	//double K1[] = {0,1e0,pow(10,0.5),1e1,pow(10,1.5),1e2,pow(10,2.5),1e3,pow(10,3.5),1e4,pow(10,4.5),1e5,pow(10,5.5),1e6,pow(10,6.5),1e7,pow(10,7.5),1e8,pow(10,8.5),1e9,pow(10,9.5),1e10};
+
 	double variables3[] = { 1e4 };  //dimensional Kf
-	//double K1[] = { 0.0,1e0,1e1,1e2,1e3,1e4,1e5,1e6,1e7,1e8,1e 9,1e10,1e11,1e12,1e13,1e14,1e15,1e16,1e17,1e18,1e19,1e20,1e21,1e22,1e23,1e24,1e25,1e26,1e27,1e28,1e29,1e30 };
-	//double K1[]{0,1e0,1e1,1e3,1e5,1e6,1e7,1e8,1e9,1e10 }; 
+
 	double variables2[] = {1e-5}; //dimensional keq
-	//double Vary[] = { 1e-1,1e-2,1e-3,1e-4 }; //Vary CAsyar
-	//double Vary[] = { 0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.08,0.09,0.10,0.11,0.12,0.15,0.20}; // now vary expanding factor 
-	//double Vary[] = { 5e-3,1e-3,5e-4,1e-4,5e-5,1e-5,5e-6,1e-6 }; //now vary dX
-	//double Vary[] = { 1e-1,8e-2,5e-2,3e-2,1e-2,8e-3,5e-3,3e-3,1e-3,8e-4,5e-4,3e-4,1e-4 }; // vary DTheta
 
-	/*double Vary[120];
-	int count = 0;
-	for (double i = 4.05; i < 10.01; i = i + 0.05) {
-		Vary[count] = pow(10, i);
-		count++;
-	}*/
-
-
-	//double dB[]{ 0.1,1,10 };
-	//double dY[]{ 0.1,1,10 };
 	writeStartTimeToLog();
 	spawnThread(std::size(sigma), sigma, std::size(variables2),variables2, size(variables3), variables3);
-	//spawnThread(std::size(sigma), sigma, std::size(dB), dB, std::size(dY), dY);
+
 	writeEndTimeToLog();
 	endAlphaToLog();
 	
-	/*for (double i = 2; i > -4.1;i=i-0.5) {
-		sigma[0] = scanRate*pow(10, i);
-		writeStartTimeToLog();
-		startAlphaToLog();
-		spawnThread(std::size(sigma), sigma, std::size(K1), K1, size(K0), K0);
-		//spawnThread(std::size(sigma), sigma, std::size(dB), dB, std::size(dY), dY);
-		writeEndTimeToLog();
-		endAlphaToLog();
-	}*/
-
 
 
 
