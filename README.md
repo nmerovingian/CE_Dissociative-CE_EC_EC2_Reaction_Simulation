@@ -2,6 +2,8 @@ Hi thank you for looking at this github repository.
 
 This repository is the supplementary information for "Sub- and Super-Nernstian Tafel Slopes Can Result from Reversible Electron Transfer Coupled to Either Preceding or Following Chemical Reaction" published at Journal of Electrical Analytical Chemsitry.
 
+Please cite: Chen, Haotian, and Richard G. Compton. "Sub-and super-Nernstian Tafel slopes can result from reversible electron transfer coupled to either preceding or following chemical reaction." Journal of Electroanalytical Chemistry 880: 114942.
+
 This set of  C++ programs should be run on a Windows machine because the window.h header is used to get system time and can be easily transported to other plaform by removing dependency on windows.h header and relating functions.
 
 Because std::thread is used, only C++ 11 and above can be used. 
